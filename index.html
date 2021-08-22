@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+    <link rel="stylesheet" href="styles.css">
+
+<body>
+
+    <!-- Heading/Title -->
+
+    <h1>Random Walk</h1>
+
+    <br>
+    
+    <!-- Controls -->
+
+    <div>
+        
+        <input type="range" id="jump" min="1" max="10" step="1" onChange="setStepSize(this.value)">
+
+        &nbsp; &nbsp; &nbsp;
+        
+        <input type="range" id="sweep" min="10" max="500" step="1" onChange="setSpeed(this.value)">
+
+        &nbsp; &nbsp; &nbsp;
+
+        <br>
+        <br>
+
+        <button id="play"> Play </button>
+        
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+
+        <button id="pause"> Pause </button>
+        
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        
+        <button id="stop"> Stop </button>
+
+    </div>
+
+    <br>
+    <br>
+
+    
+    <div>
+
+        <svg id="frame" viewBox="-100 -100 200 200 " style="border: black solid">
+
+            <!-- Axes -->
+
+            <path stroke="black" stroke-width="0.3" d="M -95 0 H 95"/>
+
+            <path stroke="black" stroke-width="0.3" d="M 0 -95 V 95"/>
+
+            <!-- Origin -->
+
+            <circle id="origin" cx="0" cy="0" r ="0.5" fill="red" stroke="black" stroke-width="0.5"/>
+            
+            
+            <!-- Point and Path -->
+
+            <g transform="scale(1,-1)">
+            
+                <path id="path" d="M 0 0"/> <!-- path consisting of single point, not visible; append to attribute via javascript -->
+
+                <circle id="dot" cx="0" cy="0" r ="0"/> <!-- circle radius initially zero, not visible; set attribute via javascript -->
+                
+            </g>
+            
+        </svg>
+
+    </div>
+
+
+    <br>
+    <br>
+
+            
+    <button id="print"> Show Steps </button>
+
+    <br>
+    <br>
+
+    <p id="steps"></p>
+
+    <br>
+    <br>
+
+    <!-- Script Tag -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
